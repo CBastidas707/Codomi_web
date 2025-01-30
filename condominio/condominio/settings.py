@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,19 +73,27 @@ WSGI_APPLICATION = 'condominio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# Inicializa el entorno
-env = environ.Env()
-environ.Env.read_env()
+import json
+import os
+
+# Ruta al archivo JSON
+with open(os.path.join(BASE_DIR, '.json')) as config_file:
+    config = json.load(config_file)
+
+print(f"Archivo JSON cargado: config.json")
+print(config)  # Imprime las variables de entorno cargadas
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('golondrina1'), 'USER': env('postgres'),
-        'PASSWORD': env('froztartara'),
-        'HOST': env('localhost'),
-        'PORT': env('5432'),
+        'NAME': config['DB_NAME'],
+        'USER': config['DB_USER'],
+        'PASSWORD': config['DB_PASSWORD'],
+        'HOST': config['DB_HOST'],
+        'PORT': config['DB_PORT'],
     }
 }
+
 
 
 # Password validation
@@ -129,3 +136,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
