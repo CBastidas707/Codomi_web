@@ -77,7 +77,7 @@ import json
 import os
 
 # Ruta al archivo JSON
-with open(os.path.join(BASE_DIR, '.json')) as config_file:
+with open(os.path.join(BASE_DIR, 'configAngelo.json')) as config_file:
     config = json.load(config_file)
 
 print(f"Archivo JSON cargado: config.json")
