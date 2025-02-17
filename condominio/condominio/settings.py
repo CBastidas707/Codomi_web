@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'inicioSesion',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'condominio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,7 +78,7 @@ import json
 import os
 
 # Ruta al archivo JSON
-with open(os.path.join(BASE_DIR, 'configAngelo.json')) as config_file:
+with open(os.path.join(BASE_DIR, '.json')) as config_file:
     config = json.load(config_file)
 
 print(f"Archivo JSON cargado: config.json")
@@ -137,3 +138,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LOGIN_REDIRECT_URL = "inicioSesion:home"
+LOGIN_REDIRECT_URL = "inicioSesion:login"
