@@ -21,8 +21,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include(("inicioSesion.urls", "inicioSesion"), "inicioSesion"))
+    path("admin/", admin.site.urls),
+    path("iniciarSesion/", include("iniciarSesion.urls")),
     ] + static(settings.STATIC_URL)
 
 urlpatterns += [path('gestion_propietario/', include('gestion_propietario.urls'))]
