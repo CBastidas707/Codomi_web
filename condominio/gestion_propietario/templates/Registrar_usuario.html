@@ -123,22 +123,33 @@
 
         <main>
             <section class="propietario">
-                <h2>Propietario:</h2>
-                <div class="input-group">
-                    <label for="nombre">Editar nombre:</label>
-                    <input type="text" id="nombre">
-                    <button>Guardar</button>
-                </div>
-                <div class="correos">
-                    <label for="correo">Correos:</label>
-                    <button>v</button>
-                </div>
+                <h2>Propietario: {{ propietario.nombre_prop }}</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ propietario_form.as_p }}
+                    <button type="submit" name="edit_nombre">Guardar Nombre</button>
+                </form>
 
-                <div class="agregar-correo">
-                    <label for="nuevo-correo">Agregar correo:</label>
-                    <input type="email" id="nuevo-correo">
-                    <button>Agregar</button>
-                </div>
+                <h2>Correos:</h2>
+                <ul class="correo-list">
+                    {% for correo in correos %}
+                        <li class="correo-item">
+                            {{ correo.correo }}
+                            <form method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="correo_id" value="{{ correo.correo }}">
+                                <button type="submit" name="delete_correo" class="delete-btn">x</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <h3>Agregar Correo:</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ correo_form.as_p }}
+                    <button type="submit" name="add_correo">Agregar</button>
+                </form>
             </section>
         </main>
     </div>
