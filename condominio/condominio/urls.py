@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("gestion_capital/", include("gestion_capital.urls")),
     path("iniciarSesion/", include("iniciarSesion.urls")),
     ] + static(settings.STATIC_URL)
 
