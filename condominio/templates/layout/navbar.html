@@ -1,19 +1,38 @@
+{% load static %}
 
 <header class="bg-white p-5 flex justify-between items-center">
-    <div class="logo text-xl font-bold">CODOMI</div>
-    <div class="user-info flex items-center">
+  <div class="logo text-xl font-bold">CODOMI</div>
+  <div class="user-info flex items-center">
       <div class="admin-name mr-2.5">admin name</div>
-      <div class="user-icon w-7 h-7 bg-gray-300 rounded-full"></div>
-    </div>
-  </header>
+      <div class="user-icon w-8 h-8 bg-gray-300 rounded-full border border-purple-500"></div> </div>
+</header>
 
 <nav class="bg-gray-800 text-white p-2.5">
-  <ul class="list-none m-0 p-0 flex justify-around">
-    <li><a href="/iniciarSesion/login/" class="text-white no-underline p-2.5">Gestion de Propietario</a></li>
-    <li><a href="#" class="text-white no-underline p-2.5">Gestión de Capital</a></li>
-    <li><a href="#" class="text-white no-underline p-2.5">Gestión de Recibo</a></li>
-    <li><a href="#" class="text-white no-underline p-2.5">Análisis de datos</a></li>
-    <li><a href="#" class="text-white no-underline p-2.5">Gestionar Edificio</a></li>
+  <ul class="list-none m-0 p-0 flex justify-around items-center">
+      <li>
+          <a href="/iniciarSesion/login/" class="text-white no-underline p-2.5 flex items-center">
+              <img src="{% static 'iconosNavBar/EditarPropietario.svg' %}" alt="Propietario" class="w-5 h-5 mr-2"> Gestion de Propietario
+          </a>
+      </li>
+      <li>
+          <a href="#" class="text-white no-underline p-2.5 flex items-center">
+              <img src="{% static 'iconosNavBar/GestionCapital.svg' %}"  alt="Capital" class="w-5 h-5 mr-2"> Gestión de Capital
+          </a>
+      </li>
+      <li>
+          <a href="#" class="text-white no-underline p-2.5 flex items-center">
+              <img src="{% static 'iconosNavBar/GestionRecibo.svg' %}" alt="Recibo" class="w-5 h-5 mr-2"> Gestión de Recibo
+          </a>
+      </li>
+      <li>
+          <a href="#" class="text-white no-underline p-2.5 flex items-center">
+              <img src="{% static 'iconosNavBar/AnalisisDatos.svg' %}" alt="Datos" class="w-5 h-5 mr-2"> Análisis de datos
+          </a>
+      </li>
+      <li>
+          <a href="#" class="text-white no-underline p-2.5 flex items-center">
+              <img src="{% static 'iconosNavBar/GestionarEdificio.svg' %}" alt="Edificio" class="w-5 h-5 mr-2"> Gestionar Edificio
+          </a>
+      </li>
   </ul>
 </nav>
-
